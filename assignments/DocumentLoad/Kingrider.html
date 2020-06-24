@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KingRider</title>
+
+<header>
+    <style>
+        .dv{
+            position: absolute;
+            width: 500px ;
+            height: 50px;
+            top: 300px;
+            left: 450px;
+            background-color:white;
+        }
+
+        .div1{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: black;
+        }
+
+        .div2{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: gray;
+            left: 100px;
+        }
+
+        .div3{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: darkgrey;
+            left: 200px;
+        }
+
+        .div4{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: gainsboro;
+            left: 300px;
+        }
+
+        .div5{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: white;
+            left: 400px;
+        }
+
+    </style>
+</header>
+
+</head>
+<body>
+<hr>
+<div class="dv">
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <div class="div5"></div>
+</div>
+<hr>
+
+<script src="Jquery/jquery-3.4.1.min.js"></script>
+<script>
+    var dvColors = ['black', 'gray', 'darkgrey', 'gainsboro', 'white'];
+    var interval;
+    var interval2;
+
+    interval=setInterval(dv,50);
+
+    var count = 0;
+    function dv() {
+        count++;
+        var lastColor = dvColors.pop();
+        dvColors.unshift(lastColor);
+        for (var i = 0; i < 5; i++) {
+            $('.dv div:nth-child(' + (1 + i) + ')').css('background-color', dvColors[i]);
+
+        }
+        if (dvColors[4]=="black") {
+            clearInterval(interval);
+            interval2 = setInterval(back,50);
+        }
+    }
+
+        function back() {
+            var lastColor = dvColors.shift();
+            dvColors.push(lastColor);
+            for (var i = 0; i < 5; i++) {
+                $('.dv div:nth-child(' + (1 + i) + ')').css('background-color', dvColors[i]);
+
+
+            }
+            if (dvColors[0]=="black"){
+                clearInterval(interval2);
+                interval=setInterval(dv,50);
+            }
+        }
+
+
+</script>
+</body>
+</html>

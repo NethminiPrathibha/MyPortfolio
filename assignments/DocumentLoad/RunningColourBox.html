@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Running Colour Box</title>
+
+<header>
+    <style>
+        .dv{
+            position: absolute;
+            width: 500px ;
+            height: 50px;
+            top: 300px;
+            left: 450px;
+        }
+
+        .dv1{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: deepskyblue;
+        }
+
+        .dv2{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            left: 100px;
+            background-color: darkcyan;
+        }
+
+        .dv3{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            left: 200px;
+            background-color: darkmagenta;
+        }
+
+        .dv4{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            left: 300px;
+            background-color: palevioletred;
+        }
+
+        .dv5{
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            left: 400px;
+            background-color: darkblue;
+        }
+
+    </style>
+</header>
+</head>
+<body>
+
+
+    <div                                                                                                                                                                  class="dv">
+        <div class="dv1"></div>
+        <div class="dv2"></div>
+        <div class="dv3"></div>
+        <div class="dv4"></div>
+        <div class="dv5"></div>
+    </div>
+
+<script src="Jquery/jquery-3.4.1.min.js"></script>
+<script>
+
+
+    var dvColors = ['deepskyblue', 'darkcyan', 'darkmagenta', 'palevioletred', 'darkblue'];
+
+    setInterval(dv,500);
+
+    function dv() {
+        var lastColor = dvColors.pop();
+        dvColors.unshift(lastColor);
+        for (var i = 0; i < 5; i++) {
+            $('.dv div:nth-child('+(1+i)+')').css('background-color',dvColors[i]);
+
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

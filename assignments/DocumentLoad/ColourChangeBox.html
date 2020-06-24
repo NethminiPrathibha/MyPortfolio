@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colour Change Box</title>
+</head>
+
+
+<body>
+
+<header>
+    <style>
+
+        .A{
+            width: 200px;
+            height: 200px;
+            background-color: darkgreen;
+            margin-left:585px ;
+            margin-top:209px ;
+        }
+
+    </style>
+</header>
+
+<div class="A"></div>
+
+<script src="Jquery/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    var colours = ['green', 'red', 'silver', 'pink', 'blue'];
+
+
+
+    // setInterval(a,1000);
+    // function a() {
+    //     console.log("A")
+    // }
+
+
+    // setTimeout(c,3000);
+    // function c() {
+    //     console.log("Time Out")
+    // }
+
+    setInterval(changeColour,300);
+
+    var i = 0;
+    function changeColour() {
+        $('div').css('background',colours[i]);
+        $('div').css('transition','all 1s');
+        i++;
+        if (i== colours.length){
+            i = 0;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
